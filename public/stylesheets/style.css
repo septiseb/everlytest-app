@@ -1,86 +1,45 @@
 body {
   padding: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding: 0;
-}
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
-
-.image-login {
-  padding-top: 50px;
-}
+  color: #00B7FF; }
 
 .container-login {
   padding: 0;
   margin: 0;
   height: 100vh;
-  font-family: "Nunito Sans";
-}
+  font-family: "Nunito Sans"; }
 
 .form-control {
-  line-height: 2;
-}
+  line-height: 2; }
 
 .bg-custom {
-  background-color: #6C63FF;
-}
+  background-color: #6C63FF; }
 
 .btn-custom {
   background-color: #3e3d56;
-  color: #fff;
-}
+  color: #fff; }
 
 .btn-custom:hover {
   background-color: #33313f;
-  color: #fff;
-}
+  color: #fff; }
 
 label {
-  color: #fff;
-}
+  color: #fff; }
 
 a,
 a:hover {
   color: #fff;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 a,
 a:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-
-
-@media(max-width: 932px) {
+@media (max-width: 932px) {
   .display-none {
-    display: none !important;
-  }
-}
-
-.btn-crear-cuenta {
-  margin-bottom: 20px;
-}
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-.header-test {
-  background-color: #6C63FF;
-  color: white;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
+    display: none !important; } }
 
 /*# sourceMappingURL=style.css.map */

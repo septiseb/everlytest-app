@@ -1,0 +1,28 @@
+<div>
+  <p>Nombre: {{this.oneExam.name}}</p>
+  <p>Descripción: {{this.oneExam.description}}</p>
+  Aplica para las siguientes posiciones:
+  <p><br>
+    {{#each this.position}}
+    {{this}} |
+    {{/each}}
+  </p>
+  <p>Dificultad: {{this.oneExam.difficulty}}</p>
+  <p>Competencia: {{this.oneExam.skills}}</p>
+  <p>Ejemplo de Preguntas:</p>
+  {{#if this.finalGrade}}
+  <h2 style="background-color: green;">{{this.finalGrade}}</h2>
+  {{/if}}
+</div>
+<div>
+  <form action="/tests/{{this.oneExam._id}}" method="POST">
+  {{#each this.oneExam.questions}}
+  <p>{{question}}</p>
+  {{#each options}}
+  <input type="radio" id="male" name="{{../id}}" value="{{this}}">
+  <label for="{{this}}" style="color: black;">{{this}}</label><br>
+  {{/each}}
+  <br>
+  {{/each}}
+  <button type="submit" class="btn btn-custom btn-lg btn-block mt-3">Enviar</button>
+  </form>

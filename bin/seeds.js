@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Question = require("../models/question.model");
 const questionData = require("../models/data/question.data");
+const Exam = require("../models/exam.model");
+const examData = require("../models/data/exam.data");
 
 mongoose
   .connect("mongodb+srv://septiseb:HolaMundo10.@cluster0.wi3mk.mongodb.net/everlytest", {
@@ -19,7 +21,7 @@ mongoose
     process.exit(1);
   });
 
-  Question.create(questionData).then(quesDB=>{
-    console.log(quesDB.length)
+ Exam.create(examData).then(quesDB=>{
+    console.log(quesDB.length);
     mongoose.connection.close();
   }).catch(e=>console.log(e));

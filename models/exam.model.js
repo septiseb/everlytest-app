@@ -27,7 +27,7 @@ const examSchema = new Schema({
     type:Number,
     default:10,
   },
-  questions:[{type:Schema.Types.ObjectId,ref:"Question"}]
+  questions:[{type:Schema.Types.ObjectId, ref:"Question"}]
 });
 
 module.exports = model("Exam",examSchema);
