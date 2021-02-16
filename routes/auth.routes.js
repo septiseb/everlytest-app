@@ -83,7 +83,7 @@ router.post("/signup", async (req, res, next) => {
     });
     req.session.currentUser = user;
 
-    res.redirect("/userProfile");
+    res.redirect("/user-profile");
   } catch (e) {
     if (e instanceof mongoose.Error.ValidationError) {
       res.status(500).render("auth/signup", { errorMessage: error.message });
@@ -115,15 +115,15 @@ router.post("/login", async (req, res, next) => {
     });
   } else if (bcrypt.compare(password, foundUser.password)) {
     req.session.currentUser = foundUser;
-    res.redirect("/userProfile");
+    res.redirect("/user-profile");
   } else {
     res.render("auth/login", { errorMessage: "Contraseña Incorrecta" });
   }
 });
 
-router.get("/userProfile", (req, res, next) => {
+router.get("/user-profile", (req, res, next) => {
   const userLog = req.session.currentUser;
-  res.render("user/dashboard", userLog);
+  res.render("user/dashboard", {userLog});
 });
 
 module.exports = router;

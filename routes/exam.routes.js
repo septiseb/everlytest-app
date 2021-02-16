@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Exam = require("../models/exam.model");
 const Question = require("../models/question.model");
+const GroupTest = require("../models/grouptest.model");
 
+//Test for the General View
 router.get("/tests", async (req, res, next) => {
   const allTest = await Exam.find();
   res.render("tests-display", { tests: allTest });
@@ -20,6 +22,25 @@ router.post("/tests", async (req, res, next) => {
     ? res.render("tests-display", { tests: filterTest })
     : res.render("tests-display", { tests: allTest });
 });
+
+//Test for the Users to add their tests
+router.get("/user-profile/create-test",(req,res,next)=>{
+  res.render("user/create-group-test");
+});
+
+router.post("/user-profile/create-test",async (req,res,next) =>{
+  const  {name, namePosition, department, positionDescription} = req.body;
+  const {_id} = req.session.currentUser;
+
+  try{
+    const createGroupTest = await GroupTest.create( {name, namePosition, department, positionDescription,user:_id});
+    res.redirect(`/user-profile/create-test/${createGroupTest._id}`);
+  } catch(e){
+    next(e);
+  }
+});
+
+// Parametros
 
 router.get("/tests/:id", async (req, res, next) => {
   const { id } = req.params;
@@ -44,5 +65,12 @@ router.post("/tests/:id", async (req, res, next) => {
   res.render("test-detail",{oneExam,finalGrade});
 });
 
+router.get("/user-profile/create-test/:id",async (req,res,next)=>{
+  const allTest = await Exam.find();
+  res.render("user/choose-tests.hbs",{allTest});
+  });
+
+
+  
 
 module.exports = router;
