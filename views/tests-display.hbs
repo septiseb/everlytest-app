@@ -1,0 +1,10 @@
+
+<form action="/tests" method="POST">
+<input type="text" name="position" placeholder="Insertar puesto, herramienta y tipo de examen">
+<button type="submit">Buscar</button>
+</form>
+{{#each this.tests}}
+  <img src="{{this.url}}" alt="{{this.name}}">
+  <p>{{this.name}}</p>
+  <p>{{this.description}}</p>
+{{/each}}

@@ -1,0 +1,42 @@
+{{!-- views/auth/signup.hbs --}}
+
+<div id="signup">
+  <h2>Registrarse</h2>
+  <form action="/signup" method="POST">
+
+
+    <label for="input-username"> Nombre </label>
+    <input type="text" name="name" placeholder="Nombre" />
+    <label for="input-username"> Apellido </label>
+    <input type="text" name="lastName" placeholder="Apellido" />
+
+    <label for="input-email"> Correo </label>
+    <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}" type="email" id="input-email" name="email"
+      placeholder="Correo" />
+
+    <label for="input-username"> Empresa </label>
+    <input type="text" name="company" placeholder="Nombre de la Empresa" />
+    
+    <label for="input-username">Sector</label>
+    <select name="sector">
+    {{#each this.sector}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}} 
+    </select>
+
+    <label for="input-username"> Puesto</label>
+    <select name="position">
+    {{#each this.position}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+    </select>
+
+    <label for="input-password"> Contraseña </label>
+    <input type="password" name="password" id="input-password" placeholder="********" />
+
+    <button type="submit">Crear Cuenta</button>
+  </form>
+  {{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+  {{/if}}
+</div>

@@ -1,0 +1,18 @@
+{{!-- views/auth/login.hbs --}}
+ 
+<div id="form">
+  <h2>Iniciar Sesión</h2>
+  <form action="/login" method="POST">
+    <label for="input-email">Correo</label>
+    <input type="text" id="input-email" name="email" placeholder="Correo" />
+ 
+    <label for="input-password">Contraseña</label>
+    <input type="password" name="password" id="input-password" placeholder="********" />
+ 
+    <button type="submit">Iniciar Sesión</button>
+ 
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
