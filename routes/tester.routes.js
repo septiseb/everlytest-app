@@ -30,10 +30,43 @@ router.post("/login-tester", async (req, res, next) => {
   }
 });
 
-router.get("/tester/:idUser", async (req, res, next) => {
-  const { idUser } = req.params;
-  const userAndTest = await Tester.findById(idUser).populate({path:'code',populate:{path:'test',model:"Exam"}});
+router.get("/tester/:idTester", async (req, res, next) => {
+  const { idTester } = req.params;
+  const userAndTest = await Tester.findById(idTester).populate({path:'code',populate:{path:'test',model:"Exam"}}).populate({path:'code',populate:{path:'user',model:"User"}});
   res.render("tester/tester-exam",userAndTest);
 });
+
+
+router.get("/tester/:idTester/:idTest",async(req,res,next)=>{
+  const {idTester,idTest} = req.params;
+  const findTestQuestions = await GroupTest.findById(idTest).populate({path:"test",populate:{path:"questions",model:"Question"}});
+  const questions = [];
+  findTestQuestions.test.forEach(question=>question.questions.forEach(qst=>questions.push(qst)));
+  res.render("tester/exam-form",{questions,idTester,idTest});
+});
+
+router.post("/tester/:idTester/:idTest",async(req,res,next)=>{
+  const {idTester,idTest} = req.params;
+  const maxScore = Number(Object.assign(req.body.numberQuestions));
+  const results = Object.assign(req.body);
+  delete results.numberQuestions;
+
+  let score= 0;
+
+  for (let result in results) {
+    const findQuestion = await Question.findById(result);
+    if (findQuestion.answer === results[result]) {
+      score++;
+    }
+  }
+
+  const finalGrade = (score / maxScore) ? Number((score / maxScore).toFixed(2)) * 100  : 0;
+
+  const testerUpdate= await Tester.findByIdAndUpdate(idTester,{grade:finalGrade,answerTest:true},{new:true});
+
+res.redirect(`/tester/${idTester}`);
+})
+
+
 
 module.exports = router;

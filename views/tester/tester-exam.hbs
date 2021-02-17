@@ -1,1 +1,13 @@
-HOLA
+<p>Bienvenido {{this.email}}, para seguir con el proceso de aplicación la empresa {{this.code.user.company}} solicita que
+contestes el siguiente conjunto de examenes que fue armado para la vacante de {{this.code.namePosition}}</p>
+
+<p>Esta es la descripción de la vacante: {{this.code.positionDescription}}</p>
+
+{{#if this.answerTest}}
+<p>El examen ya fue contestado, se pondrán en contacto para el seguimiento de la vacante.</p>
+{{else}}
+<div>
+Para empezar el examen, dar click al siguiente botón:
+<button style="background-color: green;"><a href="/tester/{{this._id}}/{{this.code._id}}" style="color: black;">Siguiente</a></button>
+</div>
+{{/if}}

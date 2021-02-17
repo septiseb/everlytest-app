@@ -5,6 +5,8 @@ const testerSchema = new Schema({
   email:String,
   name:String,
   lastName:String,
+  answerTest:{type:Boolean,default:false},
+  grade:{type:Number},
   code:{type:Schema.Types.ObjectId, ref:"GroupTest"},
 });
 

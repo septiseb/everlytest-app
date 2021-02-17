@@ -60,7 +60,7 @@ router.post("/tests/:id", async (req, res, next) => {
   const { id } = req.params;
   const oneExam = await Exam.findById(id).populate("questions");
 
-  let maxScore = Object.keys(results).length;
+  let maxScore = oneExam.questions.length;
   let score = 0;
   for (let result in results) {
     const findQuestion = await Question.findById(result);
@@ -70,7 +70,7 @@ router.post("/tests/:id", async (req, res, next) => {
   }
   const finalGrade =
     score / maxScore
-      ? Number((score / maxScore).toFixed(1)) * 100 + "%"
+      ? Number((score / maxScore).toFixed(2)) * 100 + "%"
       : "0% ";
   res.render("test-detail", { oneExam, finalGrade });
 });
