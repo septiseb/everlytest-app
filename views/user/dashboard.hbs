@@ -1,9 +1,26 @@
+{{#if this.userLog.name}}
 Bienvenido {{this.userLog.name}}
-<button><a href="/user-profile/create-test" style="color: black;" >Creer Pruebas</a></button>
-{{#if this.test}}
-{{this}}
-<a href="#" style="color: black;">Detalle</a>
-<a href="#" style="color: black;">Modificar</a>
+<button><a href="/user-profile/create-test" style="color: black;">Creer Pruebas</a></button>
+{{#if this.findGroupTest}}
+{{#each this.findGroupTest}}
+<div style="border: 1px solid black;padding-bottom: 20px;">
+  <p>Nombre de la Evaluación: {{name}}</p>
+  <p>Posicion: {{namePosition}}</p>
+  <p>Departamento: {{department}}</p>
+  <p>Aplicantes: {{testerEmail.length}}</p>
+  <div>
+    <p>Pruebas a Aplicar:</p>
+    {{#each test}}
+    {{this.name}} |
+    {{/each }}
+  </div>
+  <button><a href="#" style="color: black;">Detalle</a></button>
+  <button><a href="/user-profile/create-test/{{_id}}" style="color: black;">Modificar</a></button>
+</div>
+{{/each}}
 {{else}}
 <p>No test created</p>
+{{/if}}
+{{else}}
+User is not loggin
 {{/if}}

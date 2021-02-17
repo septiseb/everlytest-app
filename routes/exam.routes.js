@@ -3,6 +3,7 @@ const router = express.Router();
 const Exam = require("../models/exam.model");
 const Question = require("../models/question.model");
 const GroupTest = require("../models/grouptest.model");
+const Tester = require("../models/tester.model");
 
 //Test for the General View
 router.get("/tests", async (req, res, next) => {
@@ -89,15 +90,24 @@ router.get("/user-profile/create-test/:id", async (req, res, next) => {
 
 router.post("/user-profile/create-test/:id", async (req, res, next) => {
   const { id } = req.params;
-  const { idTestAdd,idTestErase} = req.body;
+  const { idTestAdd, idTestErase, testerEmail } = req.body;
 
-  (idTestAdd) ? await GroupTest.findByIdAndUpdate(id, {
-    $addToSet: { test: idTestAdd },
-  }) : await GroupTest.findByIdAndUpdate(id, {
-    $pull: { test: idTestErase },
+  idTestAdd
+    ? await GroupTest.findByIdAndUpdate(id, {
+        $addToSet: { test: idTestAdd },
+      })
+    : await GroupTest.findByIdAndUpdate(id, {
+        $pullAll: { test: [idTestErase] },
+      });
+
+  await GroupTest.findByIdAndUpdate(id, {
+    $addToSet: { testerEmail },
   });
 
+  await Tester.create({email:testerEmail,code:id});
+
   res.redirect(`/user-profile/create-test/${id}`);
+
 });
 
 module.exports = router;

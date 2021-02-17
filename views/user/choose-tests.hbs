@@ -1,5 +1,13 @@
 <button><a href="/user-profile" style="color: black;">Guardar</a></button>
 
+<form action="/user-profile/create-test/{{this.groupTest._id}}" method="POST">
+  <input type="email" name="testerEmail" placeholder="Agregar Correo de Aplicantes"
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}">
+  <button type="submit">Agregar</button>
+</form>
+
+<h1>{{this.groupTest.name}}</h1>
+
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="width: 100%;">

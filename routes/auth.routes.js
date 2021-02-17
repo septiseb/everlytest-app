@@ -127,9 +127,9 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/user-profile", async (req, res, next) => {
   const userLog = req.session.currentUser;
-  //const findGroupTest = await GroupTest.find({user})
+  const findGroupTest = await GroupTest.find({user:userLog._id}).populate("test");
 
-  res.render("user/dashboard", {userLog});
+  res.render("user/dashboard", {userLog,findGroupTest});
 });
 
 module.exports = router;
