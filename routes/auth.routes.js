@@ -5,6 +5,10 @@ const User = require("../models/users.model");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
+const Exam = require("../models/exam.model");
+const Question = require("../models/question.model");
+const GroupTest = require("../models/grouptest.model");
+
 //Variables
 const roundSalt = 10;
 const positionArray = [
@@ -121,8 +125,10 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("/user-profile", (req, res, next) => {
+router.get("/user-profile", async (req, res, next) => {
   const userLog = req.session.currentUser;
+  //const findGroupTest = await GroupTest.find({user})
+
   res.render("user/dashboard", {userLog});
 });
 
