@@ -1,9 +1,15 @@
 {{#if this.userLog.name}}
 Bienvenido {{this.userLog.name}}
-<button><a href="/user-profile/create-test" style="color: black;">Creer Pruebas</a></button>
+<button><a href="/user-profile/create-test" style="color: black;">Crear Pruebas</a></button>
+<form action="/logout" method="POST">
+  <button type="submit">Cerrar Sesion</button>
+</form>
 {{#if this.findGroupTest}}
 {{#each this.findGroupTest}}
 <div style="border: 1px solid black;padding-bottom: 20px;">
+  <form action="/delete-group-test/{{_id}}" method="POST">
+    <button type="submit" style="background-color: red;">Eliminar</button>
+  </form>
   <p>Nombre de la Evaluación: {{name}}</p>
   <p>Posicion: {{namePosition}}</p>
   <p>Departamento: {{department}}</p>
@@ -14,7 +20,7 @@ Bienvenido {{this.userLog.name}}
     {{this.name}} |
     {{/each }}
   </div>
-  <button><a href="#" style="color: black;">Detalle</a></button>
+  <button><a href="/user-profile/details/{{_id}}" style="color: black;">Detalle</a></button>
   <button><a href="/user-profile/create-test/{{_id}}" style="color: black;">Modificar</a></button>
 </div>
 {{/each}}

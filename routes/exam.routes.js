@@ -47,7 +47,13 @@ router.post("/user-profile/create-test", async (req, res, next) => {
   }
 });
 
-// Parametros
+router.post("/logout", (req, res, next) => {
+  req.session.destroy();
+  res.redirect("/");
+});
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////// Parametros///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 router.get("/tests/:id", async (req, res, next) => {
   const { id } = req.params;
@@ -100,14 +106,32 @@ router.post("/user-profile/create-test/:id", async (req, res, next) => {
         $pullAll: { test: [idTestErase] },
       });
 
-  await GroupTest.findByIdAndUpdate(id, {
-    $addToSet: { testerEmail },
-  });
+  if (!testerEmail) {
 
-  await Tester.create({email:testerEmail,code:id});
+  } else {
+
+    await GroupTest.findByIdAndUpdate(id, {
+      $addToSet: { testerEmail },
+    });
+
+    await Tester.create({ email: testerEmail, code: id });
+  }
 
   res.redirect(`/user-profile/create-test/${id}`);
+});
 
+router.post("/delete-group-test/:idGroupTest", async (req, res, next) => {
+  const { idGroupTest } = req.params;
+  await GroupTest.findByIdAndDelete(idGroupTest);
+  res.redirect("/user-profile");
+});
+
+router.get("/user-profile/details/:idGroupTest",async (req,res,next)=>{
+const {idGroupTest} = req.params;
+
+const testerGroupTest = await Tester.find({code:idGroupTest});
+
+  res.render("user/detail-test-user",{tester:testerGroupTest});
 });
 
 module.exports = router;

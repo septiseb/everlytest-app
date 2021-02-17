@@ -60,9 +60,10 @@ router.post("/tester/:idTester/:idTest",async(req,res,next)=>{
     }
   }
 
-  const finalGrade = (score / maxScore) ? Number((score / maxScore).toFixed(2)) * 100  : 0;
-
-  const testerUpdate= await Tester.findByIdAndUpdate(idTester,{grade:finalGrade,answerTest:true},{new:true});
+  const finalGrade = (score / maxScore) ? Number(((score / maxScore)* 100).toFixed(0))  : 0;
+  console.log(finalGrade);
+  
+  await Tester.findByIdAndUpdate(idTester,{grade:finalGrade,answerTest:true},{new:true});
 
 res.redirect(`/tester/${idTester}`);
 })

@@ -1,0 +1,10 @@
+{{#each this.tester}}
+
+{{#if grade}}
+<p>Correo del Aplicante: {{email}}</p>
+<p>Calificacion: {{grade}}</p>
+{{else}}
+<p>Correo del Aplicante: {{email}}</p>
+<p>Calificacion: Todavía no contesta </p>
+{{/if}}
+{{/each}}

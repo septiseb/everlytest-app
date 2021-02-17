@@ -6,6 +6,10 @@
   <button type="submit">Agregar</button>
 </form>
 
+{{#if this.errorMessage}}
+<p>{{this.errorMessage}}</p>
+{{/if}}
+
 <h1>{{this.groupTest.name}}</h1>
 
 <div class="album py-5 bg-light">
