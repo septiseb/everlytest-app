@@ -117,7 +117,7 @@ router.post("/login", async (req, res, next) => {
       errorMessage:
         "El Correo no fue encontrado. Por favor, ir al apartado de registro.",
     });
-  } else if (bcrypt.compare(password, foundUser.password)) {
+  } else if (bcrypt.compareSync(password, foundUser.password)) {
     req.session.currentUser = foundUser;
     res.redirect("/user-profile");
   } else {
