@@ -164,19 +164,21 @@
         <p class="mt-2 text-gray-600 text-sm md:text-md inline-block">
           <strong>Pruebas a Aplicar:</strong>
         </p>
-        <ul style="align-items: baseline;" class="display row list-disc space-y-2">
+        <ul style="align-items: baseline;" class="flex flex-row display row list-disc space-y-2">
           {{#each test}}
-          <li style="width: 100px;" class="flex items-start ">
-            <span class="h-6 flex items-center sm:h-7">
-              <svg class="flex-shrink-0 h-4 w-4 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd" />
-              </svg>
-            </span>
-            <p class="ml-2">
-              <code class="text-sm font-bold text-gray-900">{{this.name}}</code>
-            </p>
+          <li class="flex flex-row w-auto">
+            <div class="flex">
+              <span class="h-6 flex items-center sm:h-7">
+                <svg class="flex-shrink-0 h-4 w-4 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <p class="ml-2">
+                <code class="margin-text-sm font-bold text-gray-900">{{this.name}}</code>
+              </p>
+            </div>
           </li>
           {{/each }}
         </ul>
