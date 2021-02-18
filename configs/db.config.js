@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
-  .connect("mongodb+srv://septiseb:HolaMundo10.@cluster0.wi3mk.mongodb.net/everlytest", {
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

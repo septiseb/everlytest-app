@@ -1,3 +1,60 @@
+<nav style="background-color: #4f46E6;" class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+        </button>
+      </div>
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="/"
+              class="text-white-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+            <a href="/tests"
+              class="text-white-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pruebas</a>
+            <a href="/signup"
+              class="text-white-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Registrar</a>
+            <a href="/login"
+              class="text-white-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Iniciar
+              Sesión</a>
+            <a href="/login-tester"
+              class="text-white-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Aplicante</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Mobile menu, toggle classes based on menu state.
+
+    Menu open: "block", Menu closed: "hidden"
+  -->
+  <div class="hidden sm:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a href="/"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+      <a href="/tests"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pruebas</a>
+      <a href="/signup"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Registrar</a>
+      <a href="/login"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Iniciar
+        Sesión</a>
+      <a href="/login-tester"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Aplicante</a>
+    </div>
+  </div>
+</nav>
+
 <div>
   <p>Nombre: {{this.oneExam.name}}</p>
   <p>Descripción: {{this.oneExam.description}}</p>
@@ -11,8 +68,8 @@
   <p>Competencia: {{this.oneExam.skills}}</p>
   <p></p>
 </div>
-<div class="mt-5 md:mt-0 md:col-span-2">
 
+<div class="mt-5 md:mt-0 md:col-span-2">
   <form action="/tests/{{this.oneExam._id}}" method="POST">
 
     <div class="shadow overflow-hidden sm:rounded-md">
@@ -42,20 +99,6 @@
             </div>
             {{/each}}
             {{/each}}
-            <div class="flex items-center">
-              <input id="push_email" name="push_notifications" type="radio"
-                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-              <label for="push_email" class="ml-3 block text-sm font-medium text-gray-700">
-                Same as email
-              </label>
-            </div>
-            <div class="flex items-center">
-              <input id="push_nothing" name="push_notifications" type="radio"
-                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-              <label for="push_nothing" class="ml-3 block text-sm font-medium text-gray-700">
-                No push notifications
-              </label>
-            </div>
           </div>
         </fieldset>
       </div>
