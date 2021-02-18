@@ -9,20 +9,63 @@
   </p>
   <p>Dificultad: {{this.oneExam.difficulty}}</p>
   <p>Competencia: {{this.oneExam.skills}}</p>
-  <p>Ejemplo de Preguntas:</p>
-  {{#if this.finalGrade}}
-  <h2 style="background-color: green;">{{this.finalGrade}}</h2>
-  {{/if}}
+  <p></p>
 </div>
-<div>
+<div class="mt-5 md:mt-0 md:col-span-2">
+
   <form action="/tests/{{this.oneExam._id}}" method="POST">
-  {{#each this.oneExam.questions}}
-  <p>{{question}}</p>
-  {{#each options}}
-  <input type="radio" id="male" name="{{../id}}" value="{{this}}">
-  <label for="{{this}}" style="color: black;">{{this}}</label><br>
-  {{/each}}
-  <br>
-  {{/each}}
-  <button type="submit" class="btn btn-custom btn-lg btn-block mt-3">Enviar</button>
+
+    <div class="shadow overflow-hidden sm:rounded-md">
+      <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+        <fieldset>
+          <div>
+            {{#if this.finalGrade}}
+            <div style="background-color: green;width: 20%;height:fit-content;padding:0;margin:0;"
+              class="bg-orange-lightest border-l-4 border-orange text-orange-dark p-4" role="alert">
+              <p style="margin: 0; padding:0;">Tu calificación es:</p>
+              <p style="margin: 0; padding: 0;" class="font-bold">{{this.finalGrade}}</p>
+            </div>
+            {{/if}}
+            <legend class="text-base font-medium text-gray-900">Ejemplo de Preguntas: </legend>
+          </div>
+          {{#each this.oneExam.questions}}
+          <p class="text-sm text-gray-500">{{question}}</p>
+
+          <div class="mt-4 space-y-4">
+            {{#each options}}
+            <div class="flex items-center">
+              <input id="push_everything" name="{{../id}}" value="{{this}}" type="radio"
+                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+              <label for="{{this}}" class="ml-3 block text-sm font-medium text-gray-700">
+                {{this}}
+              </label>
+            </div>
+            {{/each}}
+            {{/each}}
+            <div class="flex items-center">
+              <input id="push_email" name="push_notifications" type="radio"
+                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+              <label for="push_email" class="ml-3 block text-sm font-medium text-gray-700">
+                Same as email
+              </label>
+            </div>
+            <div class="flex items-center">
+              <input id="push_nothing" name="push_notifications" type="radio"
+                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+              <label for="push_nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                No push notifications
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div style="justify-content: left;display: flex;" class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <button type="submit"
+          class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          style="justify-content: left;">
+          Enviar
+        </button>
+      </div>
+    </div>
   </form>
+</div>

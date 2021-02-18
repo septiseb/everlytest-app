@@ -42,4 +42,7 @@ a:hover {
   .display-none {
     display: none !important; } }
 
+.bg-custom {
+  background-color: #4f46E6; }
+
 /*# sourceMappingURL=style.css.map */

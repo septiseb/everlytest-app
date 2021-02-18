@@ -5,6 +5,7 @@
       <img src="../../images/signup-background.png" class="w-100 image-login">
     </div>
     <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+      <h1 style="color: white;margin-top: 50px;">Registrarse</h1>
       <form class="w-75" action="/signup" method="POST">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Nombre</label>
@@ -42,15 +43,16 @@
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="exampleFormControlInput2" name="password" placeholder="*********">
+          <input type="password" class="form-control" id="exampleFormControlInput2" name="password"
+            placeholder="*********">
         </div>
-            {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
-      {{/if}}
+        {{#if errorMessage}}
+        <p>{{errorMessage}}</p>
+        {{/if}}
 
         <button type="submit" class="btn btn-custom btn-lg btn-block mt-3 btn-crear-cuenta">Crear Cuenta</button>
       </form>
-  
+
     </div>
   </div>
 </div>
