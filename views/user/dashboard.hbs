@@ -63,6 +63,7 @@
 
 {{#if this.findGroupTest}}
 {{#each this.findGroupTest}}
+
 <div class="bg-white rounded-lg shadow-sm hover:shadow-lg duration-500 px-2 sm:px-6 md:px-2 py-4 my-6">
   <div class="grid grid-cols-12 gap-3">
     <!-- Meta Column -->
@@ -87,7 +88,7 @@
       <a href="#" class="grid grid-rows-2 mx-auto mb-3 py-1 w-4/5 2lg:w-3/5 rounded-md bg-green-400">
         <div class="inline-block font-medium text-2xl text-white">
           <!-- Introducir Cuantos cllevan contestados -->
-          0
+          {{answer this.testerEmail}}
         </div>
 
         <div class="inline-block font-medium text-white mx-1 text-sm lg:text-md">
@@ -98,7 +99,7 @@
       <!-- View Counts -->
       <div class="grid my-3">
         <span class="inline-block font-bold text-xs">
-          Promedio: 35.0
+          Promedio: {{average this.testerEmail}}
         </span>
       </div>
     </div>

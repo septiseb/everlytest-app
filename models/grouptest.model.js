@@ -6,9 +6,9 @@ const groupTestSchema = new Schema({
     type:String,
     required:[true,"El campo del nombre es necesario"]
   },
-  testerEmail:{
-    type:[String],
-  },
+  testerEmail:[{
+    type: Schema.Types.ObjectId, ref:"Tester"
+  }],
   user: {
     type: Schema.Types.ObjectId, ref:"User"
   },

@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const Exam = require("../models/exam.model");
 const Question = require("../models/question.model");
 const GroupTest = require("../models/grouptest.model");
+const Tester = require("../models/tester.model");
 
 //Variables
 const roundSalt = 10;
@@ -111,7 +112,7 @@ router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
 
   const foundUser = await User.findOne({ email });
-    
+
   if (!foundUser) {
     res.render("auth/login", {
       errorMessage:
@@ -127,9 +128,10 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/user-profile", async (req, res, next) => {
   const userLog = req.session.currentUser;
-  const findGroupTest = await GroupTest.find({user:userLog._id}).populate("test");
+  const findGroupTest = await GroupTest.find({ user: userLog._id }).populate(
+    "test").populate("testerEmail")
 
-  res.render("user/dashboard", {userLog,findGroupTest});
+  res.render("user/dashboard", { userLog, findGroupTest });
 });
 
 module.exports = router;

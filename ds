@@ -1,0 +1,89 @@
+[33mcommit c82f52c5d22cc54e3080bd0969912e8f25369ff8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Thu Feb 18 18:02:30 2021 -0600
+
+    deploy to heroku
+
+[33mcommit 20de3b4aecd03949c0ea261e26d1f34e306ba7a8[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Thu Feb 18 17:41:29 2021 -0600
+
+    It is deploy for presenting
+
+[33mcommit 233767c1b574090b371b9bba5e751c0299f4167c[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Thu Feb 18 16:21:35 2021 -0600
+
+    fix a bug of dashboard
+
+[33mcommit 97ed73cbb861114181a1f4725494a6ed5364ffce[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Thu Feb 18 16:16:40 2021 -0600
+
+    styles are almost done
+
+[33mcommit 3fdd8fb2631e5f883de36e227c4897372c34e333[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Wed Feb 17 19:16:22 2021 -0600
+
+    adding styles
+
+[33mcommit eaca2a261b1b4f1f3f8941d79b4a2b54227eae5c[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Wed Feb 17 15:46:07 2021 -0600
+
+    Solving a Bug in the Login
+
+[33mcommit f47accf0d0551de246c284709ddd337058ef6836[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Wed Feb 17 15:37:48 2021 -0600
+
+    It is the commit to start with Styling
+
+[33mcommit 438f358a539a8f598093508568763f4fa18e6ca8[m[33m ([m[1;32mtester[m[33m)[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Wed Feb 17 12:19:26 2021 -0600
+
+    the Tester interface is functional, missing style
+
+[33mcommit 8935c28aff9be1d300e3bbdc09bcedc6a2bc4ce8[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Wed Feb 17 00:09:10 2021 -0600
+
+    The login tester is created and double populated
+
+[33mcommit d463efce12fb1ef639be2160ef27edc505a22021[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Tue Feb 16 22:10:04 2021 -0600
+
+    Se agregaron los usarios para el Test, ahora desarrollar Experience del Tester
+
+[33mcommit 8f243bddf33ae9e1f269ce9041396b6f5bad81e1[m[33m ([m[1;32maddtest[m[33m)[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Tue Feb 16 19:49:20 2021 -0600
+
+    Funcionalidad de Crear Tests ya quedo con su boton de guardar, falta agregar evaluadores
+
+[33mcommit c93aa26e3e8584f5f6a2e3deb2ff38318e67fc5f[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Tue Feb 16 17:05:08 2021 -0600
+
+    Se creo el formulario de crear Test
+
+[33mcommit 032ba6d2140777b46b8d953bafb1eaacca33cfcf[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Tue Feb 16 15:07:32 2021 -0600
+
+    The test are detailed with an Example
+
+[33mcommit d05f609bec5b60a4fd52776ba15cf4bc5b545d94[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Mon Feb 15 23:47:39 2021 -0600
+
+    Se le dio estilo al login, signup. Falta deployar el examen y agregar boton de detail
+
+[33mcommit a1bee3495871acce62972e8126b13606e2c5dc88[m
+Author: Sebastian Septien <sebsepdus@hotmail.com>
+Date:   Mon Feb 15 19:54:53 2021 -0600
+
+    Avance del primer día

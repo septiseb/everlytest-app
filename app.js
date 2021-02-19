@@ -42,6 +42,17 @@ hbs.registerPartials(__dirname + "/views/partials");
 hbs.registerHelper('isOne', function (value) {
   return value === 1;
 }); 
+hbs.registerHelper('answer', function (value) {
+  return value.filter(v=>v.answerTest).length;
+}); 
+hbs.registerHelper('average', function (value) {
+  const total = value.filter(v=>v.grade).length;
+  const totalSum = value.filter(v=>v.grade);
+  let sum= 0;
+  totalSum.forEach(s=>sum+=s.grade);
+  return (sum/total) ? Number(((sum/total)).toFixed(0)) : 0;
+}); 
+
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
