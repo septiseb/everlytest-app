@@ -5,12 +5,12 @@ const Exam = require("../models/exam.model");
 const examData = require("../models/data/exam.data");
 
 mongoose
-  .connect("mongodb+srv://septiseb:HolaMundo10.@cluster0.wi3mk.mongodb.net/everlytest", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then(() => {
+ .then(() => {
     console.log(`Successfully connected to the database Everlytest`);
   })
   .catch((error) => {
