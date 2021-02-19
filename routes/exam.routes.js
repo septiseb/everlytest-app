@@ -6,7 +6,27 @@ const GroupTest = require("../models/grouptest.model");
 const Tester = require("../models/tester.model");
 const nodemailer = require("nodemailer");
 //FUCNTIONS
+const printTheChart= (testerScore) =>{
+  const ctx = document.getElementById('my-chart').getContext('2d');
+  const testers = testerScore.map(test=>test.email);
+  const grades =  testerScore.map(test=>test.grade ? test.grade : 0);
 
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels:  testers,
+      datasets: [
+        {
+          label: 'Puntaje de Aplicantes',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: grades
+        }
+      ]
+    }
+  }); // closes chart = new Chart()
+
+};
 
 
 //Test for the General View
@@ -160,7 +180,8 @@ router.get("/user-profile/details/:idGroupTest", async (req, res, next) => {
 
   const testerGroupTest = await Tester.find({ code: idGroupTest });
 
-  res.render("user/detail-test-user", { tester: testerGroupTest });
+  res.render("user/detail-test-user", { tester: testerGroupTest.sort((a,b)=>b.grade - a.grade)});
+
 });
 
 module.exports = router;

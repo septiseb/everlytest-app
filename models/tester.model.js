@@ -6,7 +6,7 @@ const testerSchema = new Schema({
   name:String,
   lastName:String,
   answerTest:{type:Boolean,default:false},
-  grade:{type:Number},
+  grade:{type:Number,default:0},
   code:{type:Schema.Types.ObjectId, ref:"GroupTest"},
 });
 

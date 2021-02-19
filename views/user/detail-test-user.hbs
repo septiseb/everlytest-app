@@ -45,12 +45,13 @@
   </div>
 </nav>
 
+
 <div id="container" class="mx-auto">
   <div class="block">
     <!-- Card 1 -->
     {{#each this.tester}}
     <div class="w-50 h-13 m-0 p-0 lg:flex shadow rounded-lg border  border-gray-400">
-      <div class="bg-blue-600 rounded-lg lg:w-2/12 py-4 block h-full shadow-inner">
+      <div class="bg-{{colorScore grade}}-400 rounded-lg lg:w-2/12 py-4 block h-full shadow-inner">
         <div class="text-center tracking-wide">
           {{#if grade}}
           <div class="text-white font-bold text-2xl ">{{grade}}</div>
@@ -69,5 +70,8 @@
     </div>
     {{/each}}
 
+  </div>
+  <div>
+    <canvas id="my-chart"></canvas>
   </div>
 </div>
