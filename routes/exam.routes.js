@@ -5,6 +5,10 @@ const Question = require("../models/question.model");
 const GroupTest = require("../models/grouptest.model");
 const Tester = require("../models/tester.model");
 
+//FUCNTIONS 
+
+
+
 //Test for the General View
 router.get("/tests", async (req, res, next) => {
   const allTest = await Exam.find();
