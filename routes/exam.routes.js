@@ -6,31 +6,8 @@ const GroupTest = require("../models/grouptest.model");
 const Tester = require("../models/tester.model");
 const nodemailer = require("nodemailer");
 //FUCNTIONS
-async function main() {
-  let testAccount = await nodemailer.createTestAccount();
 
-  let transporter = nodemailer.createTransport({
-    host: smtp - mail.outlook.com,
-    port: 587,
-    secure: false,
-    auth: {
-      user: "sebsepdus@hotmail.com",
-      pass: "Changua@2020.",
-    },
-  });
 
-  let info = await transporter.sendMail({
-    from: "sebsepdus@hotmail.com", // sender address
-    to: "arum_15@hotmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-
-  console.log("Message sent: %s", info.messageId);
-}
 
 //Test for the General View
 router.get("/tests", async (req, res, next) => {
@@ -148,6 +125,25 @@ router.post("/user-profile/create-test/:id", async (req, res, next) => {
         { $addToSet: { testerEmail: idTester } },
         { new: true }
       );
+
+      let transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'sebsepdus@gmail.com',
+          pass: process.env.PASSWORD,
+        }
+      });
+
+      transporter.sendMail({
+        from: 'sebsepdus@gmail.com',
+        to: testerEmail, 
+        subject: "EverlyTest, solicita que contestes esta encuesta", 
+        text: `Este es el código para entrar ${id}`,
+        html: `<b>Este es el código para entrar ${id}</b>`
+      })
+      .then(info =>console.log(info))
+      .catch(error => console.log(error));
+      
     }
   
   res.redirect(`/user-profile/create-test/${id}`);
