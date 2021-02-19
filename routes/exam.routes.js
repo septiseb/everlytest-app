@@ -149,7 +149,7 @@ router.post("/user-profile/create-test/:id", async (req, res, next) => {
       let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-          user: 'sebsepdus@gmail.com',
+          user: process.env.GMAIL,
           pass: process.env.PASSWORD,
         }
       });
